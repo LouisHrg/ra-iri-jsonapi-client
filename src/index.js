@@ -44,9 +44,11 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
 
       // Create query with pagination params.
       const query = {
-        "page[number]": page,
-        "page[size]": perPage
+        "page": page,
+        "itemsPerPage": perPage
       }
+
+      console.log(query);
 
       // Add all filter params to query.
       Object.keys(params.filter || {}).forEach((key) => {
@@ -55,8 +57,8 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
 
       // Add sort parameter
       if (params.sort && params.sort.field) {
-        const prefix = params.sort.order === "ASC" ? "" : "-"
-        query.sort = `${prefix}${params.sort.field}`
+        const prefix = params.sort.order === "ASC" ? "ASC" : "DESC"
+        query[`order[${params.sort.field}]`] = prefix
       }
 
       url = `${apiUrl}/${resource}?${stringify(query)}`
@@ -109,8 +111,8 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
 
       // Create query with pagination params.
       const query = {
-        "page[number]": page,
-        "page[size]": perPage
+        "page": page,
+        "itemsPerPage": perPage
       }
 
       // Add all filter params to query.

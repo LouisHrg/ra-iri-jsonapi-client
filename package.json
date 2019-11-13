@@ -1,5 +1,5 @@
 {
-  "name": "ra-jsonapi-client",
+  "name": "ra-iri-jsonapi-client",
   "version": "0.5.0",
   "description": "JSON API data provider for react-admin.",
   "main": "build/index.js",
