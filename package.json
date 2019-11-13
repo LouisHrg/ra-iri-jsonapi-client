@@ -1,7 +1,7 @@
 {
   "name": "ra-iri-jsonapi-client",
   "version": "0.5.0",
-  "description": "JSON API data provider for react-admin.",
+  "description": "JSON API data provider working with api-platform for react-admin.",
   "main": "build/index.js",
   "scripts": {
     "build": "babel ./src -d ./build",
@@ -16,7 +16,8 @@
   "keywords": [
     "react-admin",
     "jsonapi",
-    "npm"
+    "npm",
+    "api-platform"
   ],
   "author": "Henning Vogt <git@henvo.de>",
   "license": "MIT",
