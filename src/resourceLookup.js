@@ -69,9 +69,11 @@ export default class ResourceLookup {
    */
   unwrapData(response) {
     // The base resource object
+
+
     const ret = Object.assign(
       {
-        id: response.id
+        id: response.id.split("/")[3]
       },
       response.attributes
     )

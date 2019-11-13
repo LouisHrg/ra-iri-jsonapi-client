@@ -137,9 +137,10 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
         case GET_MANY:
         case GET_MANY_REFERENCE:
         case GET_LIST:
+          console.log(response)
           return {
             data: response.data.data.map(resource => lookup.unwrapData(resource)),
-            total: response.data.meta[settings.total],
+            total: response.data.meta.totalItems,
           }
 
         case GET_ONE:
