@@ -7,6 +7,7 @@ import {
   CREATE,
   UPDATE,
   DELETE,
+  DELETE_MANY,
   GET_MANY,
   GET_MANY_REFERENCE
 } from "./actions"
@@ -98,6 +99,11 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
       options.method = "DELETE"
       break
 
+    case DELETE_MANY: {
+      console.log(params.ids)
+      break
+    }
+
     case GET_MANY: {
       const query = {
         filter: JSON.stringify({id: params.ids})
@@ -152,7 +158,10 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
           return {
             data: lookup.unwrapData(response.data.data)
           }
-
+        case DELETE_MANY:
+          return {
+            data: [...params.ids]
+          }
         case DELETE: {
           return {
             data: {id: params.id}
