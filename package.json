@@ -1,7 +1,7 @@
 {
-  "name": "ra-jsonapi-client",
-  "version": "0.5.0",
-  "description": "JSON API data provider working with api-platform for react-admin.",
+  "name": "ra-iri-jsonapi-client",
+  "version": "0.6.0",
+  "description": "Fork of JSON API data provider to work with api-platform for react-admin.",
   "main": "build/index.js",
   "scripts": {
     "build": "babel ./src -d ./build",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/henvo/ra-jsonapi-client.git"
+    "url": "git+https://github.com/LouisHrg/ra-iri-jsonapi-client.git"
   },
   "keywords": [
     "react-admin",
@@ -19,12 +19,12 @@
     "npm",
     "api-platform"
   ],
-  "author": "Henning Vogt <git@henvo.de>",
+  "author": "Henning Vogt <pro@henvo.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/henvo/ra-jsonapi-client/issues"
+    "url": "https://github.com/LouisHrg/ra-iri-jsonapi-client"
   },
-  "homepage": "https://github.com/henvo/ra-jsonapi-client#readme",
+  "homepage": "https://github.com/LouisHrg/ra-iri-jsonapi-client#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
