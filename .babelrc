@@ -1,4 +1,33 @@
 {
-  "presets": ["env"],
-  "plugins": ["transform-object-rest-spread"]
+  "presets": [
+    [
+      "next/babel",
+      {
+        "transform-runtime": {
+          "useESModules": false,
+          "corejs": 3
+        },
+        "preset-env": {
+          "targets": {
+            "ie": "11"
+          },
+          "useBuiltIns": "usage",
+          "corejs": 3
+        }
+      },
+      "env"
+    ]
+  ],
+  "plugins": [
+    [
+      "transform-object-rest-spread",
+      "module-resolver",
+      {
+        "alias": {
+          "@": "./src"
+        }
+      }
+    ],
+    ["styled-components", { "ssr": true, "preprocess": true } ]
+  ]
 }

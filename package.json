@@ -9,10 +9,6 @@
     "lint": "eslint ./src",
     "prepublishOnly": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LouisHrg/ra-iri-jsonapi-client.git"
-  },
   "keywords": [
     "react-admin",
     "jsonapi",

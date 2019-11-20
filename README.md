@@ -21,10 +21,10 @@ Currently these actions are supported:
 
 ```sh
 # via npm
-npm install ra-jsonapi-client
+npm install ra-iri-jsonapi-client
 
 # via yarn
-yarn add ra-jsonapi-client
+yarn add ra-iri-jsonapi-client
 ```
 
 ## Usage
