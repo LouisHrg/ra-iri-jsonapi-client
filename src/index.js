@@ -49,8 +49,6 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
         "itemsPerPage": perPage
       }
 
-      console.log(query);
-
       // Add all filter params to query.
       Object.keys(params.filter || {}).forEach((key) => {
         query[`${key}`] = params.filter[key]
@@ -123,7 +121,7 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
 
       // Add all filter params to query.
       Object.keys(params.filter || {}).forEach((key) => {
-        query[`filter[${key}]`] = params.filter[key]
+        query[`${key}[]`] = params.filter[key]
       })
 
 
