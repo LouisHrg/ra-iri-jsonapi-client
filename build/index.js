@@ -73,12 +73,9 @@ exports.default = function (apiUrl) {
           var query = {
             "page": page,
             "itemsPerPage": perPage
-          };
 
-          console.log(query);
-
-          // Add all filter params to query.
-          Object.keys(params.filter || {}).forEach(function (key) {
+            // Add all filter params to query.
+          };Object.keys(params.filter || {}).forEach(function (key) {
             query["" + key] = params.filter[key];
           });
 
@@ -134,10 +131,18 @@ exports.default = function (apiUrl) {
 
       case _actions.GET_MANY:
         {
-          var _query = {
-            filter: JSON.stringify({ id: params.ids })
-          };
-          url = apiUrl + "/" + resource + "?" + (0, _qs.stringify)(_query);
+          //const query = {
+          //  filter: JSON.stringify({id: params.ids})
+          //}
+          //url = `${apiUrl}/${resource}?${stringify(query)}`
+          var test = params.ids.map(function (el) {
+            return "id[]=" + el;
+          });
+
+          var joined = test.join('&');
+
+          url = apiUrl + "/" + resource + "?" + joined;
+
           break;
         }
 
@@ -149,19 +154,19 @@ exports.default = function (apiUrl) {
 
           // Create query with pagination params.
 
-          var _query2 = {
+          var _query = {
             "page": _page,
             "itemsPerPage": _perPage
 
             // Add all filter params to query.
           };Object.keys(params.filter || {}).forEach(function (key) {
-            _query2["filter[" + key + "]"] = params.filter[key];
+            _query[key + "[]"] = params.filter[key];
           });
 
           // Add the reference id to the filter params.
-          _query2["filter[" + params.target + "]"] = params.id;
+          _query["filter[" + params.target + "]"] = params.id;
 
-          url = apiUrl + "/" + resource + "?" + (0, _qs.stringify)(_query2);
+          url = apiUrl + "/" + resource + "?" + (0, _qs.stringify)(_query);
           break;
         }
 
