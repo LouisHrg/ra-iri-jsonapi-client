@@ -167,6 +167,11 @@ exports.default = function (apiUrl) {
           _query["filter[" + params.target + "]"] = params.id;
 
           url = apiUrl + "/" + resource + "?" + (0, _qs.stringify)(_query);
+
+          if (resource === 'booking-items') {
+            url = url + "&include=product";
+          }
+
           break;
         }
 

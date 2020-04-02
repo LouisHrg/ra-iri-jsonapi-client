@@ -135,7 +135,14 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
       // Add the reference id to the filter params.
       query[`filter[${params.target}]`] = params.id
 
+
+
       url = `${apiUrl}/${resource}?${stringify(query)}`
+
+      if(resource === 'booking-items'){
+        url = `${url}&include=product`;
+      }
+
       break
     }
 
